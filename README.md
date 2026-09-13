@@ -10,7 +10,7 @@
 |---|---|
 | **Team Name** | TechTonic |
 | **Track** | [AI / DevOps / Sustainability / Open] |
-| **Team Lead** | Kunj Hirani — [email@ibm.com] |
+| **Team Lead** | Kunj Hirani — [kunjhirani6183@gmail.com] |
 | **Members** | Princy Khamar, Rutvi Modi, Dishit Padia |
 
 ---
