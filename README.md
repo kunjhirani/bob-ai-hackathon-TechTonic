@@ -1,4 +1,4 @@
-# 🚀 [Your Project Title Here]
+# 🚀 Supply Chain Disruption Assistant & Fleet Utilisation Optimizer
 
 > ⚠️ **Replace everything in `[ ]` brackets with your actual content before submission.**
 
@@ -8,10 +8,10 @@
 
 | Field | Value |
 |---|---|
-| **Team Name** | [Your Team Name] |
+| **Team Name** | TechTonic |
 | **Track** | [AI / DevOps / Sustainability / Open] |
-| **Team Lead** | [Name] — [email@ibm.com] |
-| **Members** | [Name 1], [Name 2], [Name 3] |
+| **Team Lead** | Kunj Hirani — [email@ibm.com] |
+| **Members** | Princy Khamar, Rutvi Modi, Dishit Padia |
 
 ---
 
@@ -19,7 +19,8 @@
 
 > In 2–3 sentences: What problem does your project solve? Who experiences this problem?
 
-[Describe the real-world problem your project addresses. Be specific about who the user is and what pain point they face.]
+We built an AI-powered Supply Chain Disruption Assistant for logistics operators, fleet managers, and supply-chain decision-makers. It monitors shipments, disruptions, fleet availability, routes, and cold-chain conditions to identify risks and recommend optimal rerouting, carrier alternatives, and fleet redeployment, with an AI Copilot providing actionable insights.
+
 
 ---
 
@@ -27,17 +28,17 @@
 
 > In 2–3 sentences: What did you build? How does it solve the problem above?
 
-[Describe your solution clearly. Explain the core mechanism — what makes it work.]
+We built a centralized AI-driven logistics platform that gives supply-chain teams a real-time view of their operations and helps them respond to unexpected events. It combines shipment, route, fleet, and cold-chain data to assess risk, suggest the best course of action, and provide clear recommendations through an AI Copilot—helping teams make faster decisions while reducing delays, idle resources, and cargo loss.
 
 ---
 
 ## ✨ Key Features
 
-- **Feature 1:** [Brief description — e.g., "Real-time anomaly detection using watsonx.ai"]
-- **Feature 2:** [Brief description]
-- **Feature 3:** [Brief description]
-- **Feature 4:** [Optional]
-- **Feature 5:** [Optional]
+- **Feature 1:** AI-Powered Supply Chain Risk Analysis — Identifies and prioritizes shipments affected by disruptions.
+- **Feature 2:** Intelligent Route Optimization — Determines the most suitable alternative routes based on risk, time, and cost.
+- **Feature 3:** Fleet Utilization & Redeployment — Identifies underutilized fleet and recommends where it should be deployed.
+- **Feature 4:** Cold-Chain Monitoring — Monitors temperature-sensitive shipments and detects potentially harmful temperature deviations.
+- **Feature 5:** AI Logistics Copilot — Provides logistics teams with actionable recommendations and explains the reasoning behind critical decisions.
 
 ---
 
@@ -45,11 +46,11 @@
 
 | Category | Technologies |
 |---|---|
-| **Languages** | [e.g., Python, TypeScript] |
-| **Frameworks** | [e.g., FastAPI, React] |
-| **IBM Technologies** | [e.g., watsonx.ai, IBM Bob, IBM Cloud] |
-| **Databases** | [e.g., PostgreSQL, Redis] |
-| **Other** | [e.g., Docker, GitHub Actions] |
+| **Languages** | JavaScript(ES6+), HTML5, PostCSS/CSS3 |
+| **Frameworks** | React 18, Vite 5, Tailwind CSS |
+| **IBM Technologies** | watsonx.ai & watsonx Assistant (AEGIS AI Copilot), Sterling Supply Chain Intelligence Suite, Environmental Intelligence Suite (EIS), Food Trust / Cold Chain Telemetry Standards |
+| **Databases** | React Context API, JSON Structured Data Models, Browser Web Storage (LocalStorage API) |
+| **Other** | Leaflet.js, CartoDB Voyager Vector Tiles, Recharts, Lucide React |
 
 ---
 
@@ -108,14 +109,15 @@ cp .env.example .env
 
 > Be honest — judges appreciate transparency over overclaiming.
 
-- [Limitation 1: e.g., "Authentication is mocked — not production-ready"]
-- [Limitation 2: e.g., "Only tested on Chrome"]
-- [Limitation 3: e.g., "Feature X is scaffolded but not fully implemented"]
-
+-  Telemetry data (temperature, humidity, shock), shipment positions, and global weather disruptions are driven by rich client-side mock datasets and not by real-time data and sensor streaming
+- The app opens directly to the dashboard with no login, authentication, or role restrictions.
+- Route paths are rendered using simplified polyline coordinates between origins, waypoints, and destinations. Disruption hazards use geometric circle overlays.
+-  Clicking "Apply Plan" or "Dispatch Reefer Relay" instantly updates the local state and recalculates risk scores, but does not transmit external bookings.
 ---
 
 ## 🏅 What We're Most Proud Of
 
-[Tell the judges what part of your submission is strongest and worth paying close attention to.]
-
+1 Spoilage Countdown Timer & Live Excursion Engine
+2 "What-If" Cascade Disruption Sandbox
+Most logistics dashboards are passive line graphs that show you what already went wrong yesterday. Our platform is a proactive Control Tower: it predicts cold-chain cargo spoilage hours before it happens, simulates cascading weather and port disruptions on the fly, and uses Explainable AI to match delayed shipments with idle fleet assets in a single click
 ---
