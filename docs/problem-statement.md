@@ -2,20 +2,68 @@
 
 ## Background
 
-[Describe the broader context. What domain or industry does this problem belong to? What situation creates the problem?]
+Supply chains operate as interconnected networks of shipments, vehicles, routes, carriers, ports, warehouses, and other logistics resources. A disruption at one point in the network can affect multiple shipments and create delays across other parts of the operation.
+
+Examples of disruptions include severe weather, road closures, port disruptions, carrier failures, and geopolitical events.
+
+The L2 industry problem focuses on the difficulty of tracking these disruptions across many active shipments and fleet assets. Cold-chain shipments introduce an additional risk because temperature excursions can damage sensitive cargo if they are not detected and addressed before delivery.
 
 ## The Problem
 
-[State the problem clearly and specifically. Avoid vague statements like "things are slow" — instead say "Operations teams spend an average of 45 minutes per incident diagnosing pipeline failures because logs are scattered across 6 different tools."]
+When a disruption occurs, logistics teams need to quickly determine:
+
+- Which shipments are affected?
+- Which shipments are most critical?
+- Which routes are still viable?
+- Which alternative routes or carriers should be used?
+- Which fleet vehicles are available for redeployment?
+- Which cold-chain shipments are experiencing abnormal temperatures?
+- What action should be taken first?
+
+In many operational environments, this information is distributed across different systems and requires manual analysis. This can delay decision-making and make it difficult to respond consistently when several disruptions occur simultaneously.
 
 ## Who is Affected
 
-[Describe the specific user or persona experiencing this problem. Be concrete — not "developers" but "backend engineers managing CI/CD pipelines in enterprises with 50+ microservices."]
+### Logistics Operations Managers
+
+Responsible for monitoring the overall logistics network and deciding how the organization should respond to disruptions.
+
+### Fleet Managers
+
+Responsible for vehicle availability, utilization, assignment, and redeployment.
+
+### Supply Chain Managers
+
+Need visibility into shipment risks, disruption impact, delays, and operational performance.
+
+### Logistics Operators
+
+Handle day-to-day shipment and route decisions and need clear recommendations when conditions change.
 
 ## Why It Matters
 
-[What is the cost of this problem? Lost time? Revenue? Safety risk? Frustration? Quantify if possible.]
+Delayed decisions can result in:
+
+- Increased shipment delays
+- Higher transportation costs
+- Underutilized fleet capacity
+- Inefficient rerouting
+- Missed delivery commitments
+- Increased operational workload
+- Greater risk to temperature-sensitive cargo
+- Cargo loss when cold-chain problems are detected too late
+
+The challenge becomes more significant when a single disruption affects many shipments simultaneously because manually evaluating each shipment, route, vehicle, and sensor record does not scale efficiently.
+
 
 ## Why Existing Solutions Fall Short
 
-[Briefly explain what people currently do and why it doesn't fully solve the problem. This sets up why your solution is needed.]
+Traditional logistics operations often depend on separate dashboards, spreadsheets, tracking systems, sensor platforms, and manual communication between teams.
+
+These approaches can provide individual pieces of information but may not answer the most important operational question:
+
+**What should we do next?**
+
+A logistics operator may know that a route is disrupted, but still need to manually identify affected shipments, search for alternative routes, find suitable vehicles, compare carriers, and determine which shipment should receive priority.
+
+LogiShield addresses this gap by combining these operational signals into one decision-support platform and presenting prioritized, explainable recommendations.
