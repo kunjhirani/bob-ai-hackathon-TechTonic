@@ -48,82 +48,104 @@ The platform analyzes operational data to identify high-risk shipments, recommen
 
 ## Architecture Diagram
 
-                    ┌───────────────────────┐
-                    │      Logistics User   │
-                    │ Operations / Fleet /  │
-                    │ Supply Chain Manager  │
-                    └───────────┬───────────┘
-                                │
-                                ▼
-                    ┌───────────────────────┐
-                    │   React Web Dashboard │
-                    │                       │
-                    │ Dashboard / Map /     │
-                    │ Shipments / Fleet /   │
-                    │ Cold Chain / Copilot  │
-                    └───────────┬───────────┘
-                                │
-                                ▼
-                    ┌───────────────────────┐
-                    │     FastAPI Backend   │
-                    │                       │
-                    │ API + Business Logic  │
-                    └───────────┬───────────┘
-                                │
-             ┌──────────────────┼──────────────────┐
-             │                  │                  │
-             ▼                  ▼                  ▼
-    ┌────────────────┐ ┌────────────────┐ ┌────────────────┐
-    │ Risk & Impact  │ │ Optimization   │ │ Cold-Chain     │
-    │ Analysis       │ │ Engine         │ │ Monitoring     │
-    └────────────────┘ └───────┬────────┘ └────────────────┘
-                               │
-                    ┌──────────┴──────────┐
-                    │                     │
-                    ▼                     ▼
-             Route Optimization     Fleet Matching
-                    │                     │
-                    └──────────┬──────────┘
-                               ▼
-                    ┌───────────────────────┐
-                    │    PostgreSQL Data    │
-                    │                       │
-                    │ Shipments / Fleet /   │
-                    │ Routes / Disruptions  │
-                    │ Sensors / Carriers    │
-                    └───────────┬───────────┘
-                                │
-                                ▼
-                    ┌───────────────────────┐
-                    │     IBM AI / Bob      │
-                    │    AI Logistics       │
-                    │       Copilot         │
-                    └───────────────────────┘
+                         ┌─────────────────────────┐
+                         │    Operations Planner   │
+                         │                         │
+                         │ View Operations         │
+                         │ Analyze Disruptions     │
+                         │ Optimize Routes         │
+                         │ Monitor Cold Chain      │
+                         │ Use AI Copilot          │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │   React + Vite SPA      │
+                         │        :3000            │
+                         │                         │
+                         │ Dashboard               │
+                         │ Shipments               │
+                         │ Disruptions             │
+                         │ Fleet                   │
+                         │ Cold Chain              │
+                         │ AI Copilot              │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │    LogisticsContext     │
+                         │                         │
+                         │ Application State       │
+                         │ Logistics Data          │
+                         │ Domain Logic Access     │
+                         └────────────┬────────────┘
+                                      │
+             ┌────────────────────────┼────────────────────────┐
+             │                        │                        │
+             ▼                        ▼                        ▼
+   ┌──────────────────┐     ┌──────────────────┐     ┌──────────────────┐
+   │  Mock Domain     │     │ Risk Calculator  │     │ Route Optimizer  │
+   │      Data        │     │                  │     │                  │
+   │                  │     │ Risk Assessment  │     │ Route Selection  │
+   │ Shipments        │     │ Risk Scoring     │     │ Alternative      │
+   │ Fleet            │     │ Disruption       │     │ Routes           │
+   │ Routes           │     │ Impact Analysis  │     │ Optimization     │
+   │ Disruptions      │     └──────────────────┘     └──────────────────┘
+   │ Cold Chain       │
+   └──────────────────┘
+             │
+             │
+             └───────────────────────┐
+                                     │
+                                     ▼
+                            ┌──────────────────┐
+                            │ Cold Chain       │
+                            │ Engine           │
+                            │                  │
+                            │ Temperature      │
+                            │ Monitoring       │
+                            │ Excursion        │
+                            │ Detection        │
+                            └────────┬─────────┘
+                                     │
+                                     │
+                    ┌────────────────┴────────────────┐
+                    │                                 │
+                    ▼                                 ▼
+          ┌──────────────────┐              ┌──────────────────┐
+          │  Express API     │              │  Frontend        │
+          │      :3001       │              │  Visualization   │
+          │                  │              │                  │
+          │ API Endpoints    │              │ Leaflet Map      │
+          │ AI Orchestration │              │ Recharts         │
+          └────────┬─────────┘              │ Analytics        │
+                   │                        │ AI Copilot       │
+                   ▼                        └──────────────────┘
+          ┌─────────────────────────┐
+          │   IBM watsonx.ai        │
+          │       Granite           │
+          │                         │
+          │ AI Logistics Copilot    │
+          │ Natural Language        │
+          │ Insights                │
+          │ Explanations            │
+          │ Recommendations         │
+          └─────────────────────────┘
 
 ## Key Design Decisions
 
 | Decision | Rationale |
 |---|---|
-| Centralized logistics dashboard | Gives operations teams a single view of shipments, disruptions, fleet, and cold-chain conditions. |
-| Risk-based shipment prioritization | Allows users to focus on critical shipments instead of manually reviewing every shipment. |
-| Multi-factor route evaluation | Prevents the system from selecting routes based only on distance and considers operational risk, time, and cost. |
+| IBM watsonx.ai (Granite) for Copilot answers | Grounded natural-language reasoning over live ops context; IBM foundation model suitable for enterprise logistics demos.|
+| Express proxy for watsonx calls | Keeps WATSONX_API_KEY / project ID server-side; Vite proxies /api to port 3001 |
+| Local Copilot fallback | Demo remains usable without IBM credentials; UI degrades gracefully on 503 / network errors |
 | Constraint-based fleet matching | Ensures that recommended vehicles satisfy shipment requirements such as capacity, location, availability, and refrigeration. |
-| Rule-based cold-chain threshold detection with anomaly analysis | Provides a clear and explainable way to detect temperature excursions while allowing abnormal sensor behavior to be identified. |
-| AI Copilot on top of structured operational data | Allows users to interact with complex logistics information using natural language while keeping recommendations grounded in application data. |
+| Deterministic risk and matching engines | Transparent, explainable scores stable for demos; independent of LLM variability |
+| Pre-authored recommended plans on at-risk shipments | All tabs share one live operational picture; Copilot uses the same state snapshot |
+| Cold-chain as a first-class module | Pharma/food spoilage is a distinct failure mode; breach simulation makes impact tangible |
 
 ## IBM Technologies Used
 
-**IBM Bob / IBM AI Capabilities**
+**IBM watsonx.ai**
 
-IBM's AI capabilities are used as the intelligence layer for the LogiShield Copilot. The Copilot uses relevant operational information from the application to answer logistics questions, summarize disruptions, explain shipment risks, and provide actionable recommendations.
-
-Examples of Copilot interactions include:
-
-"Which shipments are currently at highest risk?"
-"Why is shipment C204 critical?"
-"Which vehicles can be redeployed?"
-"What is the recommended route for C204?"
-"Summarize the current disruption."
-"What action should the logistics operator take?"
-
-The AI layer complements the application's deterministic risk, routing, fleet, and cold-chain logic rather than replacing those components
+The AI Copilot calls watsonx.ai text generation with model ibm/granite-3-8b-instruct. The Express service (server/watsonx.js) obtains an IBM Cloud IAM bearer token from WATSONX_API_KEY, then POSTs a prompt containing the planner question plus JSON summaries of shipments, disruptions, and fleet to the watsonx ML text-generation endpoint (WATSONX_URL, default https://us-south.ml.cloud.ibm.com) scoped to WATSONX_PROJECT_ID. Generated text is returned to the React drawer and labeled as watsonx-sourced when successful.
