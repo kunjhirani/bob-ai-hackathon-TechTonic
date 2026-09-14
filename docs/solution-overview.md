@@ -83,16 +83,16 @@ The platform analyzes operational data to identify high-risk shipments, recommen
              ┌────────────────────────┼────────────────────────┐
              │                        │                        │
              ▼                        ▼                        ▼
-   ┌──────────────────┐     ┌──────────────────┐     ┌──────────────────┐
-   │  Mock Domain     │     │ Risk Calculator  │     │ Route Optimizer  │
-   │      Data        │     │                  │     │                  │
-   │                  │     │ Risk Assessment  │     │ Route Selection  │
-   │ Shipments        │     │ Risk Scoring     │     │ Alternative      │
-   │ Fleet            │     │ Disruption       │     │ Routes           │
-   │ Routes           │     │ Impact Analysis  │     │ Optimization     │
-   │ Disruptions      │     └──────────────────┘     └──────────────────┘
-   │ Cold Chain       │
-   └──────────────────┘
+    ┌──────────────────┐     ┌──────────────────┐     ┌──────────────────┐
+    │  Mock Domain     │     │ Risk Calculator  │     │ Route Optimizer  │
+    │      Data        │     │                  │     │                  │
+    │                  │     │ Risk Assessment  │     │ Route Selection  │
+    │ Shipments        │     │ Risk Scoring     │     │ Alternative      │
+    │ Fleet            │     │ Disruption       │     │ Routes           │
+    │ Routes           │     │ Impact Analysis  │     │ Optimization     │
+    │ Disruptions      │     └──────────────────┘     └──────────────────┘
+    │ Cold Chain       │
+    └──────────────────┘
              │
              │
              └───────────────────────┐
