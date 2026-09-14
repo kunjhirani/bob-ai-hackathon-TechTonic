@@ -2,48 +2,122 @@
 
 ## System Architecture
 
-[Describe the overall architecture of your system. Replace the Mermaid diagram below with your actual architecture.]
-
-```mermaid
-graph TD
-    A[User / Browser] -->|HTTP| B[Frontend - React]
-    B -->|REST API| C[Backend - FastAPI]
-    C -->|SDK| D[watsonx.ai]
-    C -->|Query| E[PostgreSQL]
-    C -->|Publish| F[Slack Webhook]
-    D -->|Inference Result| C
-```
+                         ┌─────────────────────────┐
+                         │    Operations Planner   │
+                         │                         │
+                         │ View Operations         │
+                         │ Analyze Disruptions     │
+                         │ Optimize Routes         │
+                         │ Monitor Cold Chain      │
+                         │ Use AI Copilot          │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │   React + Vite SPA      │
+                         │        :3000            │
+                         │                         │
+                         │ Dashboard               │
+                         │ Shipments               │
+                         │ Disruptions             │
+                         │ Fleet                   │
+                         │ Cold Chain              │
+                         │ AI Copilot              │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                         ┌─────────────────────────┐
+                         │    LogisticsContext     │
+                         │                         │
+                         │ Application State       │
+                         │ Logistics Data          │
+                         │ Domain Logic Access     │
+                         └────────────┬────────────┘
+                                      │
+             ┌────────────────────────┼────────────────────────┐
+             │                        │                        │
+             ▼                        ▼                        ▼
+   ┌──────────────────┐     ┌──────────────────┐     ┌──────────────────┐
+   │  Mock Domain     │     │ Risk Calculator  │     │ Route Optimizer  │
+   │      Data        │     │                  │     │                  │
+   │                  │     │ Risk Assessment  │     │ Route Selection  │
+   │ Shipments        │     │ Risk Scoring     │     │ Alternative      │
+   │ Fleet            │     │ Disruption       │     │ Routes           │
+   │ Routes           │     │ Impact Analysis  │     │ Optimization     │
+   │ Disruptions      │     └──────────────────┘     └──────────────────┘
+   │ Cold Chain       │
+   └──────────────────┘
+             │
+             │
+             └───────────────────────┐
+                                     │
+                                     ▼
+                            ┌──────────────────┐
+                            │ Cold Chain       │
+                            │ Engine           │
+                            │                  │
+                            │ Temperature      │
+                            │ Monitoring       │
+                            │ Excursion        │
+                            │ Detection        │
+                            └────────┬─────────┘
+                                     │
+                                     │
+                    ┌────────────────┴────────────────┐
+                    │                                 │
+                    ▼                                 ▼
+          ┌──────────────────┐              ┌──────────────────┐
+          │  Express API     │              │  Frontend        │
+          │      :3001       │              │  Visualization   │
+          │                  │              │                  │
+          │ API Endpoints    │              │ Leaflet Map      │
+          │ AI Orchestration │              │ Recharts         │
+          └────────┬─────────┘              │ Analytics        │
+                   │                        │ AI Copilot       │
+                   ▼                        └──────────────────┘
+          ┌─────────────────────────┐
+          │   IBM watsonx.ai        │
+          │       Granite           │
+          │                         │
+          │ AI Logistics Copilot    │
+          │ Natural Language        │
+          │ Insights                │
+          │ Explanations            │
+          │ Recommendations         │
+          └─────────────────────────┘
 
 ## Components
 
 | Component | Technology | Responsibility |
 |---|---|---|
-| Frontend | [e.g., React 18] | [e.g., Dashboard UI, user interaction] |
-| Backend API | [e.g., FastAPI] | [e.g., Business logic, orchestration] |
-| AI / ML | [e.g., watsonx.ai] | [e.g., Anomaly scoring, classification] |
-| Database | [e.g., PostgreSQL] | [e.g., Storing pipeline events and scores] |
-| Notifications | [e.g., Slack API] | [e.g., Alerting on threshold breaches] |
+| Frontend shell | React 18 + Vite 5 | SPA bootstrap, tab layout, Tailwind UI |
+| State layer | React Context (LogisticsContext) | Shared shipments, disruptions, fleet, filters, audit log, actions |
+| Domain engines | React + Leaflet + Recharts | Visualization and operator workflows |
+| AI Copilot UI | AICopilotDrawer + copilotApi.js | Chat UX; calls /api/copilot; action chips apply plans |
+| AI / ML | IBM watsonx.ai (ibm/granite-3-8b-instruct) | Natural-language disruption Q&A grounded in ops context |
+| Persistence | In-memory (browser session) | No database; state resets on refresh | 
 
 ## Data Flow
 
-[Describe how data moves through your system from input to output.]
-
-1. [e.g., Pipeline logs are ingested via a webhook from GitHub Actions]
-2. [e.g., Logs are preprocessed and chunked into 512-token segments]
-3. [e.g., Each chunk is sent to the watsonx.ai inference endpoint]
-4. [e.g., Anomaly scores are stored in PostgreSQL]
-5. [e.g., The React dashboard polls the API every 30 seconds to refresh]
+1. Seed — Mock shipments, disruptions, fleet assets, and carriers load into LogisticsContext on app start.
+2. Risk refresh — A useEffect on disruptions recalculates each shipment’s risk score and category via calculateShipmentRiskScore.
+3. Read path — Dashboard, map, lists, and charts subscribe to context and render filtered/selected views.
+4. Copilot path — User query + context snapshot → POST /api/copilot → IAM token → watsonx text generation → reply rendered in the drawer (local fallback if watsonx is not configured or the API is down).
+5. Write path — User actions update shipment status (e.g., REROUTED_SECURE, IN_TRANSIT_OPTIMIZED, CRITICAL_EXCURSION), fleet assignment, and audit log entries.
+6. Fleet match — matchFleetToShipment scores candidates (distance ~40%, temperature capability ~35%, cost ~15%, hazmat bonus).
+7. Export — Analytics builds a CSV blob client-side; “PDF” uses the browser print dialog.
 
 ## Security Considerations
 
-[Note any security decisions relevant to the architecture — even if basic.]
-
-- [e.g., API keys stored in environment variables, never committed to git]
-- [e.g., All API routes require a Bearer token]
-- [e.g., Database credentials rotated via IBM Secrets Manager]
+- WATSONX_API_KEY and WATSONX_PROJECT_ID are stored in .env (never committed; .gitignore excludes .env).
+- watsonx calls run only on the Express server; the browser never sees the IBM API key.
+- Vite proxies /api to localhost:3001 in development so the frontend uses same-origin requests.
+- Demo domain data is mock and session-scoped; nothing is written to a remote database.
+- If extended to production, add auth on API routes, rotate IBM keys via a secrets manager, and rate-limit Copilot endpoints.
 
 ## Scalability Notes
 
-[Optional: how would this scale beyond the hackathon prototype?]
-
-[e.g., "The FastAPI backend is stateless and could be horizontally scaled behind a load balancer. The watsonx.ai calls are the bottleneck and would benefit from request batching."]
+- The SPA can be served from any static host after npm run build (dist/).
+- The Express layer is stateless and can be horizontally scaled; watsonx inference is the main latency/cost bottleneck and would benefit from caching frequent prompts and request batching.
+- Risk/matching engines are pure functions and can be moved server-side or unit-tested without changing the UX contract.
+- Live telemetry later: ingest webhooks into the API, persist events in a database, and keep feeding compact context summaries into watsonx for Copilot answers.
