@@ -113,6 +113,7 @@ cp .env.example .env
 - The app opens directly to the dashboard with no login, authentication, or role restrictions.
 - Route paths are rendered using simplified polyline coordinates between origins, waypoints, and destinations. Disruption hazards use geometric circle overlays.
 -  Clicking "Apply Plan" or "Dispatch Reefer Relay" instantly updates the local state and recalculates risk scores, but does not transmit external bookings.
+-  The live map is not currently integrated.
 ---
 
 ## 🏅 What We're Most Proud Of
