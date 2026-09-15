@@ -15,14 +15,14 @@ team:
       name: "Hirani Kunj Damodar"                           # REQUIRED — e.g., "Alice Chen"
       email: "kunjhirani6183@gmail.com"                          # REQUIRED — e.g., "alice.chen@ibm.com"
     members:
-       name: "Dishit Padia"                         # REQUIRED — Team member 1
-       email: "dishitpadia30@gmail.com"
+       -name: "Dishit Padia"                         # REQUIRED — Team member 1
+        email: "dishitpadia30@gmail.com"
        
-       name: "Khamar Princy Dushyantbhai"                         # Add more members by copying the two lines above
-       email: "princykhamar14@gmail.com"
+       -name: "Khamar Princy Dushyantbhai"                         # Add more members by copying the two lines above
+        email: "princykhamar14@gmail.com"
   
-        name: "Rutvi Bhaumik Modi"
-        email: "rutvimodia125@gmail.com"
+        -name: "Rutvi Bhaumik Modi"
+         email: "rutvimodia125@gmail.com"
 
 submission:
   title: "AEGIS (AI-Enabled Emergency & Intelligent Logistics System)"                            # REQUIRED — Project display name, e.g., "SmartOps Dashboard"
