@@ -2,9 +2,9 @@
 
 ## What We Built
 
-LogiShield is an AI-powered supply chain decision-support platform designed for logistics operators, fleet managers, and supply-chain decision-makers. It provides a centralized view of shipments, disruptions, routes, fleet availability, and cold-chain conditions.
+LogiShield is an AI-powered supply chain decision-support platform designed for logistics operators, fleet managers, and supply-chain decision-makers. It provides a centralized view of shipments, disruptions, fleet assets, and cold-chain sensor data.
 
-The platform analyzes operational data to identify high-risk shipments, recommend alternative routes and carriers, identify suitable idle fleet for redeployment, and detect cold-chain temperature excursions. An AI Logistics Copilot helps users understand the situation and provides clear, actionable recommendations.
+The platform analyzes operational data to identify high-risk shipments, recommend alternative routes and carriers, identify suitable idle fleet for redeployment, and detect cold-chain temperature excursions in real-time.
 
 
 ## How It Works
@@ -31,7 +31,7 @@ The platform analyzes operational data to identify high-risk shipments, recommen
 
 6. **Cold-chain conditions are monitored**
    
-   Temperature-sensitive shipments are monitored using sensor readings. The system detects temperature excursions and assigns an appropriate risk/severity level based on the configured shipment requirements and excursion characteristics.
+   Temperature-sensitive shipments are monitored using sensor readings. The system detects temperature excursions and assigns an appropriate risk/severity level based on the configured shipment requirements and thresholds.
 
 7. **Recommendations are generated**
    
@@ -39,7 +39,7 @@ The platform analyzes operational data to identify high-risk shipments, recommen
 
 8. **The AI Copilot explains the situation**
    
-   Users can ask questions about shipments, disruptions, routes, fleet availability, and alerts. The AI Copilot converts the underlying operational information into understandable summaries and actionable recommendations.
+   Users can ask questions about shipments, disruptions, routes, fleet availability, and alerts. The AI Copilot converts the underlying operational information into understandable summaries and actionable recommendations using natural language.
 
 9. **Operators take action**
    
@@ -148,4 +148,8 @@ The platform analyzes operational data to identify high-risk shipments, recommen
 
 **IBM watsonx.ai**
 
-The AI Copilot calls watsonx.ai text generation with model ibm/granite-3-8b-instruct. The Express service (server/watsonx.js) obtains an IBM Cloud IAM bearer token from WATSONX_API_KEY, then POSTs a prompt containing the planner question plus JSON summaries of shipments, disruptions, and fleet to the watsonx ML text-generation endpoint (WATSONX_URL, default https://us-south.ml.cloud.ibm.com) scoped to WATSONX_PROJECT_ID. Generated text is returned to the React drawer and labeled as watsonx-sourced when successful.
+The AI Copilot calls watsonx.ai text generation with model ibm/granite-3-8b-instruct. The Express service (server/watsonx.js) obtains an IBM Cloud IAM bearer token from WATSONX_API_KEY, then POSTs the user's question and operational context to the watsonx API endpoint. The response is streamed back to the frontend and rendered in the Copilot chat drawer.
+
+**IBM Bob Integration**
+
+The platform is positioned as a logistics copilot within the IBM Bob ecosystem, leveraging enterprise AI capabilities to augment human decision-making in supply chain operations.

@@ -2,11 +2,11 @@
 
 ## Background
 
-Supply chains operate as interconnected networks of shipments, vehicles, routes, carriers, ports, warehouses, and other logistics resources. A disruption at one point in the network can affect multiple shipments and create delays across other parts of the operation.
+Supply chains operate as interconnected networks of shipments, vehicles, routes, carriers, ports, warehouses, and other logistics resources. A disruption at one point in the network can affect multiple downstream operations and create cascading delays across many shipments.
 
 Examples of disruptions include severe weather, road closures, port disruptions, carrier failures, and geopolitical events.
 
-The L2 industry problem focuses on the difficulty of tracking these disruptions across many active shipments and fleet assets. Cold-chain shipments introduce an additional risk because temperature excursions can damage sensitive cargo if they are not detected and addressed before delivery.
+The L2 industry problem focuses on the difficulty of tracking these disruptions across many active shipments and fleet assets. Cold-chain shipments introduce an additional risk because temperature-sensitive cargo (pharmaceuticals, food, biologics) can be permanently damaged if temperatures exceed specified thresholds for even brief periods.
 
 ## The Problem
 
@@ -20,7 +20,7 @@ When a disruption occurs, logistics teams need to quickly determine:
 - Which cold-chain shipments are experiencing abnormal temperatures?
 - What action should be taken first?
 
-In many operational environments, this information is distributed across different systems and requires manual analysis. This can delay decision-making and make it difficult to respond consistently when several disruptions occur simultaneously.
+In many operational environments, this information is distributed across different systems and requires manual analysis. This can delay decision-making and make it difficult to respond consistently and quickly when time is of the essence.
 
 ## Who is Affected
 
@@ -53,7 +53,7 @@ Delayed decisions can result in:
 - Greater risk to temperature-sensitive cargo
 - Cargo loss when cold-chain problems are detected too late
 
-The challenge becomes more significant when a single disruption affects many shipments simultaneously because manually evaluating each shipment, route, vehicle, and sensor record does not scale efficiently.
+The challenge becomes more significant when a single disruption affects many shipments simultaneously because manually evaluating each shipment, route, vehicle, and sensor record does not scale efficiently and leads to sub-optimal decisions or missed opportunities.
 
 
 ## Why Existing Solutions Fall Short
@@ -64,6 +64,6 @@ These approaches can provide individual pieces of information but may not answer
 
 **What should we do next?**
 
-A logistics operator may know that a route is disrupted, but still need to manually identify affected shipments, search for alternative routes, find suitable vehicles, compare carriers, and determine which shipment should receive priority.
+A logistics operator may know that a route is disrupted, but still need to manually identify affected shipments, search for alternative routes, find suitable vehicles, compare carriers, and determine action priorities without a unified, intelligence-driven view.
 
 LogiShield addresses this gap by combining these operational signals into one decision-support platform and presenting prioritized, explainable recommendations.
