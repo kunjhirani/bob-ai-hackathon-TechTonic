@@ -122,18 +122,18 @@ We built a centralized AI-driven logistics platform that gives supply-chain team
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/[your-repo].git
-cd [your-repo]
+git clone https://github.com/kunjhirani/bob-ai-hackathon-TechTonic.git
+cd bob-ai-hackathon-TechTonic
 
 # 2. Install dependencies
-[your install command here]
+npm install
 
 # 3. Configure environment
 cp .env.example .env
 # Edit .env with your values
 
 # 4. Run the project
-[your run command here]
+npm run dev
 ```
 
 ---
