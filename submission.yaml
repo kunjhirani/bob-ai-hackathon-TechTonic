@@ -52,8 +52,8 @@ submission:
     other: [Leaflet.js, CartoDB Voyager Vector Tiles, Recharts, Lucide React]                          # e.g., ["Docker", "GitHub Actions", "Slack API"]
 
   what_we_are_most_proud_of: >         # Optional but recommended — guides judges to your best work
-    Replace with what aspect of the submission you consider strongest
-    and want judges to pay special attention to.
+    AEGIS combines AI-powered disruption analysis, intelligent route optimization, cold-chain
+    monitoring, and an AI logistics copilot into one unified supply-chain resilience platform.
 
   known_limitations: >                 # Optional but recommended — be honest about gaps
     Telemetry data (temperature, humidity, shock), shipment positions, and global weather disruptions are driven by rich client-side mock datasets and not by real-time data and sensor streaming
