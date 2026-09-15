@@ -18,7 +18,7 @@
 ## 🎯 Problem Statement
 
 **The Problem:**
-Supply chain operators face constant challenges responding to disruptions—weather events, port closures, carrier failures, and temperature excursions—without real-time visibility across shipments, fleet assets, and routes. Decision-making is reactive, slow, and lacks AI guidance.
+Supply chain operators face constant challenges responding to disruptions—weather events, port closures, carrier failures, and temperature excursions—without real-time visibility across shipments, fleet assets, and alternative routes.
 
 **Who Has It:**
 Logistics operators, fleet managers, and supply-chain decision-makers managing high-value, time-sensitive, and temperature-sensitive shipments (pharma, perishables).
@@ -162,8 +162,8 @@ Logistics operators, fleet managers, and supply-chain decision-makers managing h
 ├── demo/                            # Demo & presentation materials
 │   ├── screenshots/                 # UI screenshots
 │   ├── demo-video-link.txt          # Link to demo video
-│   └��─ live-demo-url.txt            # Link to live deployment
-���
+│   └── live-demo-url.txt            # Link to live deployment
+│
 ├── presentation/
 │   ├── slides.pdf                   # Presentation deck
 │   └── README.md
