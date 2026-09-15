@@ -57,7 +57,51 @@ We built a centralized AI-driven logistics platform that gives supply-chain team
 ## 📁 Repository Structure
 
 ```
-├── src/                  # All source code
+├── src/
+|       src/
+|    │
+|    ├── dist/
+|    │   ├── assets/
+|    │   │   ├── index-CQLNs9P3.css
+|    │   │   └── index-CIXYRbk_.js
+|    │   │
+|    │   └── index.html
+|    │
+|    ├── notebooks/
+|    │   └── disruption_risk_model.ipynb
+|    │
+|    └── src/
+|        │
+|        ├── api/
+|        │   └── logisticsApi.js
+|        │
+|        ├── backend/
+|        │   └── server.js
+|        │
+|        ├── data/
+|        │   ├── mockCarriers.js
+|        │   ├── mockDisruptions.js
+|        │   ├── mockFleet.js
+|        │   └── mockShipments.js
+|        │
+|        ├── frontend/
+|        │   ├── components/
+|        │   │   └── ...
+|        │   ├── App.jsx
+|        │   ├── index.css
+|        │   └── main.jsx
+|        │
+|        ├── models/
+|        │   └── types.js
+|        │
+|        ├── shared/
+|        │   └── LogisticsContext.jsx
+|        │
+|        └── utils/
+|            ├── coldChainEngine.js
+|            ├── reportExporter.js
+|            ├── riskCalculator.js
+|            └── routeOptimizer.js                  # All source code
 ├── docs/                 # Written documentation
 │   ├── problem-statement.md
 │   ├── solution-overview.md
