@@ -57,9 +57,9 @@ submission:
 
   known_limitations: >                 # Optional but recommended — be honest about gaps
     Telemetry data (temperature, humidity, shock), shipment positions, and global weather disruptions are driven by rich client-side mock datasets and not by real-time data and sensor streaming
-The app opens directly to the dashboard with no login, authentication, or role restrictions.
-Route paths are rendered using simplified polyline coordinates between origins, waypoints, and destinations. Disruption hazards use geometric circle overlays.
-Clicking "Apply Plan" or "Dispatch Reefer Relay" instantly updates the local state and recalculates risk scores, but does not transmit external bookings.
+    The app opens directly to the dashboard with no login, authentication, or role restrictions.
+    Route paths are rendered using simplified polyline coordinates between origins, waypoints, and destinations. Disruption hazards use geometric circle overlays.
+    Clicking "Apply Plan" or "Dispatch Reefer Relay" instantly updates the local state and recalculates risk scores, but does not transmit external bookings.
 
 # =============================================================================
 # ARTIFACT LOCATIONS
