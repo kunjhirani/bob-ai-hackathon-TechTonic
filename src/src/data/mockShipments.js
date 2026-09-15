@@ -1,0 +1,242 @@
+export const initialShipments = [
+  {
+    id: "SH-9042",
+    title: "mRNA Vaccine Batch #V-4021",
+    carrier: "Pacific ColdRelay Logistics",
+    mode: "Sea Vessel",
+    status: "CRITICAL_EXCURSION",
+    isColdChain: true,
+    cargoValue: 650000,
+    cargoType: "Biopharmaceuticals",
+    origin: { name: "Shanghai Port, CN", coords: [31.2304, 121.4737] },
+    destination: { name: "Port of Long Beach, USA", coords: [33.7701, -118.1937] },
+    currentPosition: { name: "Mid-Pacific Transit", coords: [26.4000, -165.2000] },
+    eta: "2026-09-17T14:00:00Z",
+    originalEta: "2026-09-15T08:00:00Z",
+    delayHours: 54,
+    riskScore: 92,
+    riskCategory: "CRITICAL",
+    temperature: {
+      current: 12.8,
+      minThreshold: 2.0,
+      maxThreshold: 8.0,
+      unit: "°C",
+      history: [
+        { time: "06:00", temp: 4.2 },
+        { time: "09:00", temp: 4.5 },
+        { time: "12:00", temp: 7.1 },
+        { time: "15:00", temp: 9.8 },
+        { time: "18:00", temp: 12.8 }
+      ],
+      excursionDurationMins: 135,
+      spoilageHoursRemaining: 2.5
+    },
+    humidity: 78,
+    affectedByDisruptionId: "DIS-101",
+    waypoints: [
+      [31.2304, 121.4737],
+      [28.5000, 140.0000],
+      [26.4000, -165.2000],
+      [30.1000, -140.0000],
+      [33.7701, -118.1937]
+    ],
+    recommendedPlan: {
+      action: "RESERVE_EXPEDITED_AIR_RELAY",
+      alternateCarrier: "AeroCold Express",
+      alternateRoute: "Reroute via Honolulu Hub (HNL) for emergency reefer dry-ice refresh and air dispatch to LAX",
+      costDelta: 14500,
+      etaDeltaHours: -42,
+      riskReduction: 68,
+      reasoning: "Prevents complete spoilage of $650,000 vaccine cargo by restoring 3.5°C thermal boundary within 3 hours."
+    }
+  },
+  {
+    id: "SH-8821",
+    title: "Automotive Microchips (5,000 units)",
+    carrier: "Global Horizon Maritime",
+    mode: "Sea Vessel",
+    status: "DISRUPTED_ROUTE",
+    isColdChain: false,
+    cargoValue: 1200000,
+    cargoType: "Semiconductors",
+    origin: { name: "Kaohsiung Port, TW", coords: [22.6273, 120.3014] },
+    destination: { name: "Port of Hamburg, DE", coords: [53.5511, 9.9937] },
+    currentPosition: { name: "Red Sea Entrance", coords: [12.7855, 43.3424] },
+    eta: "2026-09-24T18:00:00Z",
+    originalEta: "2026-09-18T10:00:00Z",
+    delayHours: 152,
+    riskScore: 84,
+    riskCategory: "HIGH",
+    temperature: null,
+    affectedByDisruptionId: "DIS-102",
+    waypoints: [
+      [22.6273, 120.3014],
+      [12.7855, 43.3424],
+      [29.9325, 32.5599],
+      [36.1408, -5.3536],
+      [53.5511, 9.9937]
+    ],
+    recommendedPlan: {
+      action: "REROUTE_CAPE_OF_GOOD_HOPE",
+      alternateCarrier: "Maersk Trident Line",
+      alternateRoute: "Bypass Bab-el-Mandeb strait; detour around Cape of Good Hope, South Africa",
+      costDelta: 28000,
+      etaDeltaHours: -72,
+      riskReduction: 55,
+      reasoning: "Avoids high-risk choke point and potential 12-day maritime congestion."
+    }
+  },
+  {
+    id: "SH-7019",
+    title: "Fresh Chilean Salmon (Reefer Freight)",
+    carrier: "Andean Reefer Express",
+    mode: "Reefer Truck",
+    status: "IN_TRANSIT_WARNING",
+    isColdChain: true,
+    cargoValue: 210000,
+    cargoType: "Perishable Food",
+    origin: { name: "Miami International Cargo, FL", coords: [25.7617, -80.1918] },
+    destination: { name: "Chicago Distribution Center, IL", coords: [41.8781, -87.6298] },
+    currentPosition: { name: "Atlanta North Corridor, GA", coords: [34.0500, -84.2500] },
+    eta: "2026-09-14T20:00:00Z",
+    originalEta: "2026-09-14T12:00:00Z",
+    delayHours: 8,
+    riskScore: 61,
+    riskCategory: "MEDIUM",
+    temperature: {
+      current: 3.8,
+      minThreshold: -1.0,
+      maxThreshold: 4.0,
+      unit: "°C",
+      history: [
+        { time: "06:00", temp: 1.2 },
+        { time: "09:00", temp: 2.1 },
+        { time: "12:00", temp: 3.1 },
+        { time: "15:00", temp: 3.8 }
+      ],
+      excursionDurationMins: 0,
+      spoilageHoursRemaining: 18.0
+    },
+    humidity: 85,
+    affectedByDisruptionId: "DIS-103",
+    waypoints: [
+      [25.7617, -80.1918],
+      [30.3322, -81.6557],
+      [34.0500, -84.2500],
+      [36.1627, -86.7816],
+      [41.8781, -87.6298]
+    ],
+    recommendedPlan: {
+      action: "SMART_FLEET_REPLACEMENT",
+      alternateCarrier: "SwiftReefer Asset #TRK-881",
+      alternateRoute: "Dispatch idle reefer unit #TRK-881 from Atlanta hub for mid-point swap",
+      costDelta: 1800,
+      etaDeltaHours: -5,
+      riskReduction: 40,
+      reasoning: "Primary compressor unit efficiency degrading under high ambient heat. Truck swap secures 1.0°C hold."
+    }
+  },
+  {
+    id: "SH-6044",
+    title: "High-Precision Medical Ultrasound Gear",
+    carrier: "Lufthansa Cargo Flight LH8290",
+    mode: "Air Freight",
+    status: "ON_SCHEDULE",
+    isColdChain: false,
+    cargoValue: 890000,
+    cargoType: "Medical Equipment",
+    origin: { name: "Frankfurt Airport (FRA), DE", coords: [50.0379, 8.5622] },
+    destination: { name: "Tokyo Narita (NRT), JP", coords: [35.7720, 140.3929] },
+    currentPosition: { name: "Polar Corridor Airspace", coords: [68.2000, 75.4000] },
+    eta: "2026-09-14T06:30:00Z",
+    originalEta: "2026-09-14T06:30:00Z",
+    delayHours: 0,
+    riskScore: 12,
+    riskCategory: "LOW",
+    temperature: null,
+    affectedByDisruptionId: null,
+    waypoints: [
+      [50.0379, 8.5622],
+      [60.0000, 45.0000],
+      [68.2000, 75.4000],
+      [52.0000, 115.0000],
+      [35.7720, 140.3929]
+    ],
+    recommendedPlan: null
+  },
+  {
+    id: "SH-5120",
+    title: "Lithium Battery Cells (EV Grade)",
+    carrier: "TransAsia Heavy Freight",
+    mode: "Sea Vessel",
+    status: "DISRUPTED_ROUTE",
+    isColdChain: false,
+    cargoValue: 1450000,
+    cargoType: "Hazmat / Batteries",
+    origin: { name: "Busan Port, KR", coords: [35.1796, 129.0756] },
+    destination: { name: "Port of Rotterdam, NL", coords: [51.9244, 4.4777] },
+    currentPosition: { name: "East China Sea", coords: [28.8000, 124.5000] },
+    eta: "2026-09-28T12:00:00Z",
+    originalEta: "2026-09-22T08:00:00Z",
+    delayHours: 148,
+    riskScore: 89,
+    riskCategory: "HIGH",
+    temperature: null,
+    affectedByDisruptionId: "DIS-101",
+    waypoints: [
+      [35.1796, 129.0756],
+      [28.8000, 124.5000],
+      [15.0000, 110.0000],
+      [1.3521, 103.8198],
+      [51.9244, 4.4777]
+    ],
+    recommendedPlan: {
+      action: "MULTIMODAL_RAIL_RELAY",
+      alternateCarrier: "Eurasian Express Rail",
+      alternateRoute: "Offload at Port of Busan South; transfer to Trans-Eurasian Express Rail freight link",
+      costDelta: 31000,
+      etaDeltaHours: -96,
+      riskReduction: 62,
+      reasoning: "Completely avoids active Super Typhoon storm track and 5-day port shutdown."
+    }
+  },
+  {
+    id: "SH-4291",
+    title: "Organ Transplant Preservation Cassettes",
+    carrier: "MediTrans Express Airlift",
+    mode: "Air Freight",
+    status: "ON_SCHEDULE",
+    isColdChain: true,
+    cargoValue: 1100000,
+    cargoType: "Cryo Organ Samples",
+    origin: { name: "Boston Logan (BOS), USA", coords: [42.3656, -71.0096] },
+    destination: { name: "Houston Intercontinental (IAH), USA", coords: [29.9902, -95.3368] },
+    currentPosition: { name: "In-Flight over Virginia", coords: [37.5000, -78.2000] },
+    eta: "2026-09-13T22:15:00Z",
+    originalEta: "2026-09-13T22:15:00Z",
+    delayHours: 0,
+    riskScore: 8,
+    riskCategory: "LOW",
+    temperature: {
+      current: -19.4,
+      minThreshold: -25.0,
+      maxThreshold: -15.0,
+      unit: "°C",
+      history: [
+        { time: "16:00", temp: -20.1 },
+        { time: "17:00", temp: -19.8 },
+        { time: "18:00", temp: -19.4 }
+      ],
+      excursionDurationMins: 0,
+      spoilageHoursRemaining: 48.0
+    },
+    humidity: 12,
+    affectedByDisruptionId: null,
+    waypoints: [
+      [42.3656, -71.0096],
+      [37.5000, -78.2000],
+      [29.9902, -95.3368]
+    ],
+    recommendedPlan: null
+  }
+];
