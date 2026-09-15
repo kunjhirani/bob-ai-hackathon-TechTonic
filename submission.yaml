@@ -20,22 +20,22 @@ submission:
 
   problem_statement: >                 # REQUIRED — 1-3 sentences. What problem? Who has it?
    Supply chain disruptions — weather events, port strikes, geopolitical crises — cascade
-across hundreds of active shipments in ways that are impossible to track manually. Fleet
-assets (trucks, containers, vessels) sit idle while other routes are overloaded. Cold chain
-shipments (vaccines, perishables) are especially vulnerable — a single temperature
-excursion across any leg can spoil a $500K+ cargo, but breaches are only discovered at
-delivery when it is too late.
+   across hundreds of active shipments in ways that are impossible to track manually. Fleet
+   assets (trucks, containers, vessels) sit idle while other routes are overloaded. Cold chain
+   shipments (vaccines, perishables) are especially vulnerable — a single temperature
+   excursion across any leg can spoil a $500K+ cargo, but breaches are only discovered at
+   delivery when it is too late.
 
   solution_summary: >                  # REQUIRED — 1-3 sentences. What did you build?
     AEGIS (AI-Enabled Emergency & Intelligent Logistics System) is an AI-powered supply chain resilience platform designed to help logistics and operations teams respond quickly to unexpected disruptions.
 
-The solution provides a centralized view of shipments, routes, fleet assets, disruptions, and cold-chain operations. It analyzes disruption impacts to identify affected and high-risk shipments, recommends alternative routes, helps identify opportunities for fleet redeployment, and detects potential cold-chain temperature excursions.
+    The solution provides a centralized view of shipments, routes, fleet assets, disruptions, and cold-chain operations. It analyzes disruption impacts to identify affected and high-risk shipments, recommends alternative routes, helps identify opportunities for fleet redeployment, and detects potential cold-chain temperature excursions.
 
-An AI Copilot powered by IBM watsonx.ai Granite provides natural-language insights, explanations, and actionable recommendations, allowing operations planners to understand complex logistics situations and make faster, data-driven decisions.
+    An AI Copilot powered by IBM watsonx.ai Granite provides natural-language insights, explanations, and actionable recommendations, allowing operations planners to understand complex logistics situations and make faster, data-driven decisions.
 
-The platform is built with a React + Vite frontend and an Express backend. LogisticsContext manages application state and domain data, while dedicated modules handle risk calculation, route optimization, and cold-chain monitoring. Leaflet provides map-based visualization and Recharts is used for operational analytics.
+    The platform is built with a React + Vite frontend and an Express backend. LogisticsContext manages application state and domain data, while dedicated modules handle risk calculation, route optimization, and cold-chain monitoring. Leaflet provides map-based visualization and Recharts is used for operational analytics.
 
-By combining operational analytics, optimization logic, cold-chain monitoring, and generative AI assistance in a single platform, AEGIS aims to reduce disruption impact, improve fleet utilization, protect sensitive shipments, and support faster decision-making during supply-chain emergencies.
+    By combining operational analytics, optimization logic, cold-chain monitoring, and generative AI assistance in a single platform, AEGIS aims to reduce disruption impact, improve fleet utilization, protect sensitive shipments, and support faster decision-making during supply-chain emergencies.
 
   key_features:                        # REQUIRED — List 3 to 5 specific features you implemented
     - "AI-Powered Supply Chain Risk Analysis — Identifies and prioritizes shipments affected by disruptions."                               # e.g., "Real-time pipeline anomaly detection using watsonx.ai"
