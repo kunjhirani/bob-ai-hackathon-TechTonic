@@ -29,26 +29,32 @@ cp .env.example .env
 
 ## Installation
 
+```bash
 # 1. Clone the repository
 git clone https://github.com/kunjhirani/bob-ai-hackathon-TechTonic.git
-cd kunjhirani\bob-ai-hackathon-TechTonic
+cd kunjhirani/bob-ai-hackathon-TechTonic
 
 # 2. Install dependencies (frontend + Express API)
 npm install
 
 # 3. Configure IBM watsonx.ai
 cp .env.example .env
+```
 
 There is no database migration step.
 
 ## Running the Application
 
+```bash
 npm run dev
+```
 
-Or in seperate terminals
+Or in separate terminals
 
+```bash
 npm run dev:api
 npm run dev:web
+```
 
 The application will be available at: http://localhost:3000
 
@@ -60,7 +66,7 @@ Manual smoke checklist for evaluators:
 
 1. Open http://localhost:3000 — Dashboard KPIs and map load.
 2. Open http://localhost:3001/api/health — confirm watsonxConfigured: true if keys are set.
-3. Open AI Copilot — ask “Summarize high-risk cargo”; with watsonx configured, reply should cite watsonx / Granite.
+3. Open AI Copilot — ask "Summarize high-risk cargo"; with watsonx configured, reply should cite watsonx / Granite.
 4. Action Center — apply a recommended plan; shipment status updates; audit log gains an entry.
 5. Cold-Chain — Simulate Breach; temperature/status reflect excursion.
 6. Fleet — redeploy an idle asset.
