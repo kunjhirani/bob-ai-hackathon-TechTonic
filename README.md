@@ -9,7 +9,7 @@
 | Field | Value |
 |---|---|
 | **Team Name** | TechTonic |
-| **Track** | [AI / DevOps / Sustainability / Open] |
+| **Track** | AI |
 | **Team Lead** | Kunj Hirani — kunjhirani6183@gmail.com |
 | **Members** | Princy Khamar, Rutvi Modi, Dishit Padia |
 
@@ -48,7 +48,7 @@ We built a centralized AI-driven logistics platform that gives supply-chain team
 |---|---|
 | **Languages** | JavaScript(ES6+), HTML5, PostCSS/CSS3 |
 | **Frameworks** | React 18, Vite 5, Tailwind CSS |
-| **IBM Technologies** | watsonx.ai & watsonx Assistant (AEGIS AI Copilot), Sterling Supply Chain Intelligence Suite, Environmental Intelligence Suite (EIS), Food Trust / Cold Chain Telemetry Standards |
+| **IBM Technologies** | watsonx.ai & watsonx Assistant (AEGIS AI Copilot) |
 | **Databases** | React Context API, JSON Structured Data Models, Browser Web Storage (LocalStorage API) |
 | **Other** | Leaflet.js, CartoDB Voyager Vector Tiles, Recharts, Lucide React |
 
