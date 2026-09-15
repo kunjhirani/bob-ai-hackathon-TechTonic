@@ -17,8 +17,10 @@ team:
   members:
     - name: "Dishit Padia"                         # REQUIRED — Team member 1
       email: "dishitpadia30@gmail.com"
+  members:
     - name: "Khamar Princy Dushyantbhai"                         # Add more members by copying the two lines above
       email: "princykhamar14@gmail.com"
+  members:
     - name: "Rutvi Bhaumik Modi"
       email: "rutvimodia125@gmail.com"
 
