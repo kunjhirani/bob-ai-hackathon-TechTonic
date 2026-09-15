@@ -9,51 +9,63 @@
 # =============================================================================
 
 team:
-  name: ""                             # REQUIRED — e.g., "Orion Squad"
-  track: ""                            # REQUIRED — one of: AI | DevOps | Sustainability | Open
+  name: "TechTonic"                             # REQUIRED — e.g., "Orion Squad"
+  track: "AI"                            # REQUIRED — one of: AI | DevOps | Sustainability | Open
   lead:
-    name: ""                           # REQUIRED — e.g., "Alice Chen"
-    email: ""                          # REQUIRED — e.g., "alice.chen@ibm.com"
+    name: "Hirani Kunj Damodar"                           # REQUIRED — e.g., "Alice Chen"
+    email: "kunjhirani6183@gmail.com"                          # REQUIRED — e.g., "alice.chen@ibm.com"
   members:
-    - name: ""                         # REQUIRED — Team member 1
-      email: ""
-    - name: ""                         # Add more members by copying the two lines above
-      email: ""
-    - name: ""
-      email: ""
+    - name: "Dishit Padia"                         # REQUIRED — Team member 1
+      email: "dishitpadia30@gmail.com"
+    - name: "Khamar Princy Dushyantbhai"                         # Add more members by copying the two lines above
+      email: "princykhamar14@gmail.com"
+    - name: "Rutvi Bhaumik Modi"
+      email: "rutvimodia125@gmail.com"
 
 submission:
-  title: ""                            # REQUIRED — Project display name, e.g., "SmartOps Dashboard"
+  title: "AEGIS (AI-Enabled Emergency & Intelligent Logistics System)"                            # REQUIRED — Project display name, e.g., "SmartOps Dashboard"
 
   problem_statement: >                 # REQUIRED — 1-3 sentences. What problem? Who has it?
-    Replace this text with a concise description of the real-world problem
-    your project addresses and who experiences it.
-
+   Supply chain disruptions — weather events, port strikes, geopolitical crises — cascade
+across hundreds of active shipments in ways that are impossible to track manually. Fleet
+assets (trucks, containers, vessels) sit idle while other routes are overloaded. Cold chain
+shipments (vaccines, perishables) are especially vulnerable — a single temperature
+excursion across any leg can spoil a $500K+ cargo, but breaches are only discovered at
+delivery when it is too late.
   solution_summary: >                  # REQUIRED — 1-3 sentences. What did you build?
-    Replace this text with a clear description of your solution
-    and how it addresses the problem above.
+    AEGIS (AI-Enabled Emergency & Intelligent Logistics System) is an AI-powered supply chain resilience platform designed to help logistics and operations teams respond quickly to unexpected disruptions.
+
+The solution provides a centralized view of shipments, routes, fleet assets, disruptions, and cold-chain operations. It analyzes disruption impacts to identify affected and high-risk shipments, recommends alternative routes, helps identify opportunities for fleet redeployment, and detects potential cold-chain temperature excursions.
+
+An AI Copilot powered by IBM watsonx.ai Granite provides natural-language insights, explanations, and actionable recommendations, allowing operations planners to understand complex logistics situations and make faster, data-driven decisions.
+
+The platform is built with a React + Vite frontend and an Express backend. LogisticsContext manages application state and domain data, while dedicated modules handle risk calculation, route optimization, and cold-chain monitoring. Leaflet provides map-based visualization and Recharts is used for operational analytics.
+
+By combining operational analytics, optimization logic, cold-chain monitoring, and generative AI assistance in a single platform, AEGIS aims to reduce disruption impact, improve fleet utilization, protect sensitive shipments, and support faster decision-making during supply-chain emergencies.
 
   key_features:                        # REQUIRED — List 3 to 5 specific features you implemented
-    - ""                               # e.g., "Real-time pipeline anomaly detection using watsonx.ai"
-    - ""
-    - ""
-    - ""                               # optional 4th
-    - ""                               # optional 5th
+    - "AI-Powered Supply Chain Risk Analysis — Identifies and prioritizes shipments affected by disruptions."                               # e.g., "Real-time pipeline anomaly detection using watsonx.ai"
+    - "Intelligent Route Optimization — Determines the most suitable alternative routes based on risk, time, and cost."
+    - "Fleet Utilization & Redeployment — Identifies underutilized fleet and recommends where it should be deployed."
+    - "Cold-Chain Monitoring — Monitors temperature-sensitive shipments and detects potentially harmful temperature deviations."                               # optional 4th
+    - "AI Logistics Copilot — Provides logistics teams with actionable recommendations and explains the reasoning behind critical decisions."                               # optional 5th
 
   tech_stack:
-    languages: []                      # REQUIRED — e.g., ["Python", "TypeScript"]
-    frameworks: []                     # e.g., ["FastAPI", "React"]
-    ibm_technologies: []               # e.g., ["watsonx.ai", "IBM Bob", "IBM Cloud Functions"]
-    databases: []                      # e.g., ["PostgreSQL", "Redis"]
-    other: []                          # e.g., ["Docker", "GitHub Actions", "Slack API"]
+    languages: [JavaScript(ES6+), HTML5, PostCSS/CSS3]                      # REQUIRED — e.g., ["Python", "TypeScript"]
+    frameworks: [React 18, Vite 5, Tailwind CSS]                     # e.g., ["FastAPI", "React"]
+    ibm_technologies: [watsonx.ai & watsonx Assistant (AEGIS AI Copilot)]               # e.g., ["watsonx.ai", "IBM Bob", "IBM Cloud Functions"]
+    databases: [React Context API, JSON Structured Data Models, Browser Web Storage (LocalStorage API)]                      # e.g., ["PostgreSQL", "Redis"]
+    other: [Leaflet.js, CartoDB Voyager Vector Tiles, Recharts, Lucide React]                          # e.g., ["Docker", "GitHub Actions", "Slack API"]
 
   what_we_are_most_proud_of: >         # Optional but recommended — guides judges to your best work
     Replace with what aspect of the submission you consider strongest
     and want judges to pay special attention to.
 
   known_limitations: >                 # Optional but recommended — be honest about gaps
-    Replace with any known limitations, incomplete features,
-    or shortcuts taken due to time constraints.
+    Telemetry data (temperature, humidity, shock), shipment positions, and global weather disruptions are driven by rich client-side mock datasets and not by real-time data and sensor streaming
+The app opens directly to the dashboard with no login, authentication, or role restrictions.
+Route paths are rendered using simplified polyline coordinates between origins, waypoints, and destinations. Disruption hazards use geometric circle overlays.
+Clicking "Apply Plan" or "Dispatch Reefer Relay" instantly updates the local state and recalculates risk scores, but does not transmit external bookings.
 
 # =============================================================================
 # ARTIFACT LOCATIONS
